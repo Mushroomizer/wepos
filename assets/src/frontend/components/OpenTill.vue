@@ -17,7 +17,18 @@ export default {
     methods: {
         openTill(e) {
             e.preventDefault();
+            this.printTime();
         },
+          printTime() {
+            var a = window.open('', '', 'height=500, width=500');
+            const now = new Date(Date.now()).toUTCString();
+            a.document.write('<html>');
+            a.document.write('<body >');
+            a.document.write(now);
+            a.document.write('</body></html>');
+            a.document.close();
+            a.print();
+        }
     }
 };
 </script>
