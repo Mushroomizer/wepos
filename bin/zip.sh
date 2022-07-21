@@ -28,6 +28,11 @@ warning () {
     echo -e "\n${YELLOW_BOLD}$1${COLOR_RESET}\n"
 }
 
+# do a git pull
+status "Updating"
+git pull
+success "Update successful"
+
 status "💃 Time to build the wePOS Pro ZIP file 🕺"
 
 # remove the build directory if exists and create one
@@ -70,4 +75,8 @@ zip -r -q wepos.zip wepos
 # remove the source directory
 rm -rf wepos
 
-success "Done. You've built wePOS! 🎉 "
+status "Commit & push build"
+cd ..
+git commit ./build/wepos.zip -m "Build Updated"
+git push
+success "Done. You've built and pushed wePOS! 🎉"
