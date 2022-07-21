@@ -205,7 +205,7 @@ export default {
                 filterProduct = this.products.filter((product) => {
                     if (product.type == 'simple') {
                         if (product[field].toString() == processedBarcode.sku || product[field].toString() == this.serachInput) {
-                            JSON.stringify("Found :208: " + product)
+                            console.log(JSON.stringify("Found :208: " + product))
                             return true;
                         }
                     }
@@ -215,7 +215,7 @@ export default {
                             weLo_.forEach(product.variations, (item, key) => {
                                 if (item[field].toString() == processedBarcode.sku || item[field].toString() == this.serachInput) {
                                     ifFound = true;
-                                    JSON.stringify("Found :218: " + item)
+                                    console.log(JSON.stringify("Found :218: " + item))
                                 }
                             });
                         }
@@ -234,7 +234,7 @@ export default {
                     var variations = filterProduct.variations;
                     var selectedVariationProduct = variations.filter((item) => {
                         if (item[field].toString() == this.serachInput || item[field].toString() == processedBarcode.sku) {
-                            JSON.stringify("Found :237: " + item)
+                            console.log(JSON.stringify("Found :237: " + item))
                             return true;
                         }
                         return false;
