@@ -132,10 +132,8 @@ export default {
     }
 
     .wepos-checkout-print-wrapper {
-        position: absolute;
-        left: 0;
-        top: 0;
         width: 100%;
+        margin: 0 auto;
 
         .header, .footer{
             padding: 5px;
