@@ -19,15 +19,20 @@ export default {
             e.preventDefault();
             this.printTime();
         },
-          printTime() {
-            var a = window.open('', '', 'height=500, width=500');
+        printTime() {
+            var a = window.open('', '', 'height=400, width=300');
             const now = new Date(Date.now()).toUTCString();
             a.document.write('<html>');
             a.document.write('<body >');
             a.document.write(now);
             a.document.write('</body></html>');
-            a.document.close();
+            a.document.close(); // necessary for IE >= 10
+            a.focus(); // necessary for IE >= 10*/
+
             a.print();
+            a.close();
+
+            return true;
         }
     }
 };

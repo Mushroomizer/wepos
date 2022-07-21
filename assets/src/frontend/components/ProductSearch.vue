@@ -204,7 +204,7 @@ export default {
                 selectedProduct = {},
                 filterProduct = this.products.filter((product) => {
                     if (product.type == 'simple') {
-                        if (product[field].toString() == processedBarcode["sku"]) {
+                        if (product[field].toString() == processedBarcode.sku || product[field].toString() == this.serachInput) {
                             return true;
                         }
                     }
@@ -212,7 +212,7 @@ export default {
                         var ifFound = false;
                         if (product.variations.length > 0) {
                             weLo_.forEach(product.variations, (item, key) => {
-                                if (item[field].toString() == this.serachInput) {
+                                if (item[field].toString() == processedBarcode.sku || item[field].toString() == this.serachInput) {
                                     ifFound = true;
                                 }
                             });
@@ -243,7 +243,7 @@ export default {
 
                     this.$emit('onProductAdded', selectedProduct);
                 } else {
-                    for (let i = 0; i < processedBarcode["amount"]; i++) {
+                    for (let i = 0; i < processedBarcode.amount; i++) {
                         this.$emit("onProductAdded", filterProduct);
                     }
                 }
@@ -253,8 +253,10 @@ export default {
         },
         processBarcode(c) {
             var result = {};
-            result["amount"] = c.substring(0, 1);
-            result["sku"] = c.substring(1, c.length);
+            result.version = c.substring(0, 1);
+            result.sku = c.substring(2, 7);
+            result.amount = c.substring(7, c.length - 1);
+            result.checksum = c.substring(c.length - 1, c.length);
             console.log(JSON.stringify(result))
             return result
         },
