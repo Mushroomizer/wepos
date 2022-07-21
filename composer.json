@@ -1,9 +1,13 @@
 {
   "name": "wedevs/wepos",
-  "description": "A beautiful and fast Point of Sale (POS) system for WooCommerce",
+  "description": "A beautiful and fast Point of Sale (POS) system for WooCommerce - Custom Changes",
   "type": "wordpress-plugin",
   "license": "GPL2",
   "authors": [
+    {
+      "name": "Cuan",
+      "email": "cuan.otto@gmail.com"
+    },
     {
       "name": "weDevs",
       "email": "info@wedevs.com"

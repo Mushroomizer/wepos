@@ -205,6 +205,7 @@ export default {
                 filterProduct = this.products.filter((product) => {
                     if (product.type == 'simple') {
                         if (product[field].toString() == processedBarcode.sku || product[field].toString() == this.serachInput) {
+                            JSON.stringify("Found :208: " + product)
                             return true;
                         }
                     }
@@ -214,6 +215,7 @@ export default {
                             weLo_.forEach(product.variations, (item, key) => {
                                 if (item[field].toString() == processedBarcode.sku || item[field].toString() == this.serachInput) {
                                     ifFound = true;
+                                    JSON.stringify("Found :218: " + item)
                                 }
                             });
                         }
@@ -231,7 +233,8 @@ export default {
                 if (filterProduct.type == 'variable') {
                     var variations = filterProduct.variations;
                     var selectedVariationProduct = variations.filter((item) => {
-                        if (item[field].toString() == this.serachInput) {
+                        if (item[field].toString() == this.serachInput || item[field].toString() == this.processedBarcode.sku) {
+                            JSON.stringify("Found :237: " + item)
                             return true;
                         }
                         return false;
@@ -253,10 +256,10 @@ export default {
         },
         processBarcode(c) {
             var result = {};
-            result.version = c.substring(0, 1);
-            result.sku = c.substring(2, 7);
-            result.amount = c.substring(7, c.length - 1);
-            result.checksum = c.substring(c.length - 1, c.length);
+            result.version = Number(c.substring(0, 1));
+            result.sku = Number(c.substring(2, 7));
+            result.amount = Number(c.substring(7, c.length - 1));
+            result.checksum = Number(c.substring(c.length - 1, c.length));
             console.log(JSON.stringify(result))
             return result
         },
