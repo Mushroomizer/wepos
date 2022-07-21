@@ -244,11 +244,11 @@ export default {
                     selectedProduct.type = filterProduct.type;
                     selectedProduct.name = filterProduct.name;
 
-                    this.$emit('onProductAdded', selectedProduct);
-                } else {
                     for (let i = 0; i < processedBarcode.amount; i++) {
-                        this.$emit("onProductAdded", filterProduct);
+                        this.$emit('onProductAdded', selectedProduct);
                     }
+                } else {
+                    this.$emit("onProductAdded", filterProduct);
                 }
             }
 
