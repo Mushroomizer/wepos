@@ -233,7 +233,7 @@ export default {
                 if (filterProduct.type == 'variable') {
                     var variations = filterProduct.variations;
                     var selectedVariationProduct = variations.filter((item) => {
-                        if (item[field].toString() == this.serachInput || item[field].toString() == this.processedBarcode.sku) {
+                        if (item[field].toString() == this.serachInput || item[field].toString() == processedBarcode.sku) {
                             JSON.stringify("Found :237: " + item)
                             return true;
                         }
