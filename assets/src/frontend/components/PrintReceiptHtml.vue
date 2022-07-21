@@ -132,8 +132,10 @@ export default {
     }
 
     .wepos-checkout-print-wrapper {
+        position: absolute;
+        left: 0;
+        top: 0;
         width: 100%;
-        margin: 0 auto;
 
         .header, .footer{
             padding: 5px;
@@ -148,7 +150,8 @@ export default {
 
         .content {
             table.sale-summary {
-                width: 100%;
+                width: 90%;
+                margin: 0 auto;
                 border-collapse: collapse;
                 tbody {
                     tr {
